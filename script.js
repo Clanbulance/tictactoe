@@ -44,21 +44,64 @@ const gameCreation = (function(){
         return console.log(`${k} placed on gameBoard[${i}][${j}]`);
     }
 
-    const checkForWin = (gameBoard) => {
+    let winner = "";
+
+    const checkForWin = () => {
         for (let i = 0;i <gameBoard.length;i++){
-            let rowXcount = 0;
-            let rowOcount = 0;
-            let colXcount = 0;
-            let colOcount = 0;
+            let rowXCount = 0;
+            let rowOCount = 0;
+            let colXCount = 0;
+            let colOCount = 0;
             let mainDiagonalXCount = 0;
             let mainDiagonalOCount = 0;
             let antiDiagonalXCount = 0;
             let antiDiagonalOCount = 0;
+            for (let j = 0; j < gameBoard[i].length; j++) {
+                // Check rows
+                if (gameBoard[i][j] === "X") {
+                    rowXCount++;
+                } else if (gameBoard[i][j] === "O") {
+                    rowOCount++;
+                }
+                // Check columns
+                if (gameBoard[j][i] === "X") {
+                    colXCount++;
+                } else if (gameBoard[j][i] === "O") {
+                    colOCount++;
+                }
+                // Check main diagonal
+                if (i === j && gameBoard[i][j] === "X") {
+                    mainDiagonalXCount++;
+                } else if (i === j && gameBoard[i][j] === "O") {
+                    mainDiagonalOCount++;
+                }
+                // Check anti-diagonal
+                if (i + j === gameBoard.length - 1 && gameBoard[i][j] === "X") {
+                    antiDiagonalXCount++;
+                } else if (i + j === gameBoard.length - 1 && gameBoard[i][j] === "O") {
+                    antiDiagonalOCount++;
+                }
+            }
+            // Check if X or O has won in rows, columns, or diagonals
+            if (rowXCount === 3 || colXCount === 3 || mainDiagonalXCount === 3 || antiDiagonalXCount === 3) {
+                return winner = "x";
+            } else if (rowOCount === 3 || colOCount === 3 || mainDiagonalOCount === 3 || antiDiagonalOCount === 3) {
+                return winner = "y";
+            } else {
+                return winner = "no one"
+            }
         }
-
+        return winner;
     }
 
-    return{playerSwap,getCurrentMove,getGameBoard,changeGameBoard};
+    const checkWinner = () => {
+        return winner;
+    }
+        
+
+    
+
+    return{playerSwap,getCurrentMove,getGameBoard,changeGameBoard,checkForWin,checkWinner};
 })();
 
 //Factoryfunction to create players
