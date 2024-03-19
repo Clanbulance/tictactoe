@@ -8,21 +8,20 @@
     <title>tictactoe</title>
 </head>
 <body>
-    <div>
-        <table>
-            <tr>
-                <td>Class</td>
-                <td>Comment</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
+    <div class="gameboard">
+        <div class="cell" id="0" data-row="0" data-col="0"></div>
+        <div class="cell" id="1" data-row="0" data-col="1"></div>
+        <div class="cell" id="2" data-row="0" data-col="2"></div>
+        <div class="cell" id="3" data-row="1" data-col="0"></div>
+        <div class="cell" id="4" data-row="1" data-col="1"></div>
+        <div class="cell" id="5" data-row="1" data-col="2"></div>
+        <div class="cell" id="6" data-row="2" data-col="0"></div>
+        <div class="cell" id="7" data-row="2" data-col="1"></div>
+        <div class="cell" id="8" data-row="2" data-col="2"></div>
+    </div> 
+    <div class="popup">
+        <p class="Winner"></p>
+        <button class="btn" onclick="resetBoard()">Play Again!</button>
     </div>
 </body>
 </html>

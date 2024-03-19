@@ -1,0 +1,44 @@
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    margin:0px;
+    box-sizing: border-box;
+    
+}
+
+
+.gameboard{
+    display:grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr;
+   border:2px solid red;
+   
+}
+
+.cell{
+    aspect-ratio: 1 /1 ;
+    display: grid;
+    width: 10vw;
+    border:2px solid rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.popup{
+    display: none;
+    position:fixed;
+    border:2px solid red;
+    width: 20%;
+    aspect-ratio: 1/1;
+    flex-direction: column;
+    background-color: grey;
+}
+
+.btn{
+    margin-top: auto;
+    height: 30%;
+}
